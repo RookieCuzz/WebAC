@@ -1,0 +1,73 @@
+2025-01-10-00-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 4
+ 2025-01-10-00-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-01-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 5
+ 2025-01-10-01-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-02-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 6
+ 2025-01-10-02-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-03-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 7
+ 2025-01-10-03-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-04-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 8
+ 2025-01-10-04-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-05-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 9
+ 2025-01-10-05-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-06-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 10
+ 2025-01-10-06-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-07-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 11
+ 2025-01-10-07-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-08-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 12
+ 2025-01-10-08-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-09-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 13
+ 2025-01-10-09-10 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2025-01-10-09-43 [http-nio-18089-exec-5] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-5] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55d6ca4d] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@418bff42] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-5] [WARN] [com.zaxxer.hikari.pool.PoolBase]  - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@57094097 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [WARN] [com.zaxxer.hikari.pool.PoolBase]  - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@102a5f0e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+ 2025-01-10-09-43 [http-nio-18089-exec-5] [WARN] [com.zaxxer.hikari.pool.PoolBase]  - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@645ead66 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [WARN] [com.zaxxer.hikari.pool.PoolBase]  - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7bfb7ef8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@662970041 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@418bff42]
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45e19a24] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@922740534 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@45e19a24]
+ 2025-01-10-09-43 [http-nio-18089-exec-7] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-7] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66c2b380] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-7] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@368131613 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-7] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@66c2b380]
+ 2025-01-10-09-43 [http-nio-18089-exec-10] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-10] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6aa57aff] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-10] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@2119031311 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-10] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6aa57aff]
+ 2025-01-10-09-43 [http-nio-18089-exec-9] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-9] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d6f933d] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-9] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@296467754 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-9] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d6f933d]
+ 2025-01-10-09-43 [http-nio-18089-exec-6] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-6] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2dfceab0] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-6] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@1347301945 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-6] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2dfceab0]
+ 2025-01-10-09-43 [http-nio-18089-exec-4] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-4] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1eadbfaf] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-4] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@527251192 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-4] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1eadbfaf]
+ 2025-01-10-09-43 [http-nio-18089-exec-5] [WARN] [com.zaxxer.hikari.pool.PoolBase]  - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7399702 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+ 2025-01-10-09-43 [http-nio-18089-exec-5] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55d6ca4d]
+ 2025-01-10-09-43 [http-nio-18089-exec-8] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-8] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@546d26b8] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-8] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@2092054506 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-8] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@546d26b8]
+ 2025-01-10-09-43 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54118a47] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@1147472042 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@54118a47]
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2efbf583] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@46520328 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-3] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2efbf583]
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@bd28466] was not registered for synchronization because synchronization is not active
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@1118510978 wrapping com.mysql.cj.jdbc.ConnectionImpl@22e96cf5] will not be managed by Spring
+ 2025-01-10-09-43 [http-nio-18089-exec-1] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@bd28466]
+ 

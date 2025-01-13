@@ -1,0 +1,135 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.cuzz'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+configurations {
+    excludeSlf4j
+}
+repositories {
+    mavenCentral()  // 确保包含 Maven Central 仓库
+    // 使用阿里云的 Maven 仓库镜像
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+    }
+    // 如果你还想保留 Maven Central
+    mavenCentral()
+    // 使用阿里云的 jcenter 镜像（如果需要）
+    maven {
+        url 'https://maven.aliyun.com/repository/jcenter'
+    }
+
+    // 使用阿里云的 Google 镜像
+    maven {
+        url 'https://maven.aliyun.com/repository/google'
+    }
+
+    // Gradle 插件仓库镜像
+    maven {
+        url 'https://maven.aliyun.com/repository/gradle-plugin'
+    }
+
+
+}
+
+configurations.all {
+    exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+    exclude group: 'org.slf4j'
+    exclude group: 'ch.qos.logback'
+}
+
+dependencies {
+
+//    implementation 'org.springframework.boot:spring-boot-starter-logging'  // Logback 默认配置
+//    implementation 'org.slf4j:slf4j-api:1.7.32'  // 需要引入 SLF4J API
+//    implementation 'ch.qos.logback:logback-classic:1.2.9'  // Logback 实现
+//    implementation 'ch.qos.logback:logback-core:1.2.9'  // Logback 核心库
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2:1.5.6.RELEASE'
+    //
+    implementation('org.apache.rocketmq:rocketmq-spring-boot-starter:2.3.1') {
+        exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'
+        // 如果需要排除其他的日志依赖，可以继续添加
+    }
+
+    // 引入 JAR 文件并排除 SLF4J 相关依赖
+    implementation files("libs/afybroker-client-2.3-all.jar")
+    // jwt API
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+
+    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:2.1.0'
+    // jwt impl
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+
+    //jwt jackson
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+
+    implementation 'com.github.wechatpay-apiv3:wechatpay-java:0.2.14'  // 微信支付 Java SDK
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'  // Spring Boot 测试库
+    implementation 'net.glxn:qrgen:1.4'  // QR 生成库
+    implementation 'com.google.zxing:core:3.4.1'  // ZXing 图形库
+    implementation 'org.mongodb:mongodb-driver-sync:4.8.1'
+    implementation 'dev.morphia.morphia:morphia-core:2.2.1'
+    implementation 'org.mongodb:mongodb-driver-core:4.8.1'
+    implementation 'org.mongodb:bson-record-codec:4.8.1'
+    implementation 'org.mongodb:bson:4.8.1'
+    // Spring Boot 基础依赖
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Redis Starter
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // 邮件 Starter
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    // MyBatis Starter，调整为兼容 Spring Boot 3.x 版本
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+    // Spring JDBC Starter
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // MySQL 驱动
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+
+    // MyBatis Generator 核心依赖
+    implementation 'org.mybatis.generator:mybatis-generator-core:1.4.2'
+
+    // 密码加密库 BCrypt
+    implementation 'org.mindrot:jbcrypt:0.4'
+
+    // Lombok，用于简化 Java 类的 Getter/Setter
+    implementation 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // Spring Boot Web Starter（仅需添加一次）
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // 测试依赖
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // JUnit 平台
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+}
+
+
+
+task generateMyBatis {
+    doLast {
+        javaexec {
+            main = 'org.mybatis.generator.api.ShellRunner'
+            classpath = sourceSets.main.runtimeClasspath
+            args = ['-configfile', 'src/main/resources/generatorConfig.xml', '-overwrite']
+        }
+    }
+}

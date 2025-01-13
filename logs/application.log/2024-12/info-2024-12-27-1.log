@@ -1,0 +1,299 @@
+2024-12-27-20-45 [background-preinit] [INFO] [org.hibernate.validator.internal.util.Version]  - HV000001: Hibernate Validator 8.0.1.Final
+ 2024-12-27-20-45 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - Starting WebAcApplication using Java 17.0.1 with PID 33008 (C:\Users\PC\Desktop\WebAC\build\classes\java\main started by PC in C:\Users\PC\Desktop\WebAC)
+ 2024-12-27-20-45 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - No active profile set, falling back to 1 default profile: "default"
+ 2024-12-27-20-45 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Multiple Spring Data modules found, entering strict repository configuration mode
+ 2024-12-27-20-45 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+ 2024-12-27-20-45 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\AccountDOMapper.class]
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\OrderDOMapper.class]
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\ProductDOMapper.class]
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'accountDOMapper' and 'com.cuzz.webac.mapper.AccountDOMapper' mapperInterface
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'accountDOMapper'.
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'orderDOMapper' and 'com.cuzz.webac.mapper.OrderDOMapper' mapperInterface
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'orderDOMapper'.
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'productDOMapper' and 'com.cuzz.webac.mapper.ProductDOMapper' mapperInterface
+ 2024-12-27-20-45 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'productDOMapper'.
+ 2024-12-27-20-45 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-45 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-45 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-45 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-45 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketMQMessageListenerContainerRegistrar' of type [org.apache.rocketmq.spring.support.RocketMQMessageListenerContainerRegistrar] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-45 [main] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]  - Tomcat initialized with port 18089 (http)
+ 2024-12-27-20-45 [main] [INFO] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext]  - Root WebApplicationContext: initialization completed in 1295 ms
+ 2024-12-27-20-45 [main] [WARN] [com.alipay.remoting.connection.AbstractConnectionFactory]  - [client side] bolt netty low water mark is 32768 bytes, high water mark is 65536 bytes
+ 2024-12-27-20-45 [main] [WARN] [RpcRemoting]  - Switch on connection monitor
+ 2024-12-27-20-45 [main] [WARN] [RpcRemoting]  - Switch on reconnect manager
+ 2024-12-27-20-45 [bolt-netty-client-worker-1-thread-1] [INFO] [ConnectionEvent]  - Connection channel registered: UNKNOWN-ADDR
+ 2024-12-27-20-45 [bolt-netty-client-worker-1-thread-1] [INFO] [ConnectionEvent]  - Try connect to 127.0.0.1:11200
+ 2024-12-27-20-45 [bolt-netty-client-worker-1-thread-1] [INFO] [ConnectionEvent]  - Connection closed: 127.0.0.1:11200
+ 2024-12-27-20-45 [main] [WARN] [com.alipay.remoting.connection.AbstractConnectionFactory]  - Create connection to localhost:11200 error!
+ 2024-12-27-20-45 [main] [WARN] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext]  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springClient': Invocation of init method failed
+ 2024-12-27-20-45 [bolt-netty-client-worker-1-thread-1] [INFO] [ConnectionEvent]  - Connection channel unregistered: 127.0.0.1:11200
+ 2024-12-27-20-45 [main] [INFO] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger]  - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ 2024-12-27-20-45 [main] [ERROR] [org.springframework.boot.SpringApplication]  - Application run failed
+ org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springClient': Invocation of init method failed
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:222) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:422) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1798) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) [spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) [spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) [spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) [spring-boot-3.3.4.jar:3.3.4]
+	at com.cuzz.webac.WebAcApplication.main(WebAcApplication.java:17) [main/:?]
+Caused by: com.alipay.remoting.exception.RemotingException: Create connection failed. The address is localhost:11200
+	at com.alipay.remoting.DefaultConnectionManager.create(DefaultConnectionManager.java:440) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.doCreate(DefaultConnectionManager.java:744) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.access$000(DefaultConnectionManager.java:38) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager$ConnectionPoolCall.call(DefaultConnectionManager.java:671) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager$ConnectionPoolCall.call(DefaultConnectionManager.java:637) ~[afybroker-client-2.3-all.jar:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at com.alipay.remoting.util.RunStateRecordedFutureTask.run(RunStateRecordedFutureTask.java:40) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.getConnectionPoolAndCreateIfAbsent(DefaultConnectionManager.java:529) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.getAndCreateIfAbsent(DefaultConnectionManager.java:390) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.rpc.RpcClient.getConnection(RpcClient.java:394) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.rpc.RpcClient.getConnection(RpcClient.java:386) ~[afybroker-client-2.3-all.jar:?]
+	at net.afyer.afybroker.client.BrokerClient.ping(BrokerClient.java:81) ~[afybroker-client-2.3-all.jar:?]
+	at com.cuzz.webac.broker.SpringClient.init(SpringClient.java:53) ~[main/:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 18 more
+Caused by: java.lang.Exception: Create connection to localhost:11200 error!
+	at com.alipay.remoting.connection.AbstractConnectionFactory.doCreateConnection(AbstractConnectionFactory.java:319) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.connection.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:167) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.create(DefaultConnectionManager.java:437) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.doCreate(DefaultConnectionManager.java:744) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.access$000(DefaultConnectionManager.java:38) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager$ConnectionPoolCall.call(DefaultConnectionManager.java:671) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager$ConnectionPoolCall.call(DefaultConnectionManager.java:637) ~[afybroker-client-2.3-all.jar:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at com.alipay.remoting.util.RunStateRecordedFutureTask.run(RunStateRecordedFutureTask.java:40) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.getConnectionPoolAndCreateIfAbsent(DefaultConnectionManager.java:529) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.DefaultConnectionManager.getAndCreateIfAbsent(DefaultConnectionManager.java:390) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.rpc.RpcClient.getConnection(RpcClient.java:394) ~[afybroker-client-2.3-all.jar:?]
+	at com.alipay.remoting.rpc.RpcClient.getConnection(RpcClient.java:386) ~[afybroker-client-2.3-all.jar:?]
+	at net.afyer.afybroker.client.BrokerClient.ping(BrokerClient.java:81) ~[afybroker-client-2.3-all.jar:?]
+	at com.cuzz.webac.broker.SpringClient.init(SpringClient.java:53) ~[main/:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:401) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:219) ~[spring-beans-6.1.13.jar:6.1.13]
+	... 18 more
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:11200
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[?:?]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[?:?]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327) ~[afybroker-client-2.3-all.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[afybroker-client-2.3-all.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:688) ~[afybroker-client-2.3-all.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635) ~[afybroker-client-2.3-all.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552) ~[afybroker-client-2.3-all.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514) ~[afybroker-client-2.3-all.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044) ~[afybroker-client-2.3-all.jar:?]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[afybroker-client-2.3-all.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[?:?]
+2024-12-27-20-47 [background-preinit] [INFO] [org.hibernate.validator.internal.util.Version]  - HV000001: Hibernate Validator 8.0.1.Final
+ 2024-12-27-20-47 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - Starting WebAcApplication using Java 17.0.1 with PID 40068 (C:\Users\PC\Desktop\WebAC\build\classes\java\main started by PC in C:\Users\PC\Desktop\WebAC)
+ 2024-12-27-20-47 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - No active profile set, falling back to 1 default profile: "default"
+ 2024-12-27-20-47 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Multiple Spring Data modules found, entering strict repository configuration mode
+ 2024-12-27-20-47 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+ 2024-12-27-20-47 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\AccountDOMapper.class]
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\OrderDOMapper.class]
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\ProductDOMapper.class]
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'accountDOMapper' and 'com.cuzz.webac.mapper.AccountDOMapper' mapperInterface
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'accountDOMapper'.
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'orderDOMapper' and 'com.cuzz.webac.mapper.OrderDOMapper' mapperInterface
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'orderDOMapper'.
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'productDOMapper' and 'com.cuzz.webac.mapper.ProductDOMapper' mapperInterface
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'productDOMapper'.
+ 2024-12-27-20-47 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-47 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-47 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-47 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-47 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketMQMessageListenerContainerRegistrar' of type [org.apache.rocketmq.spring.support.RocketMQMessageListenerContainerRegistrar] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-47 [main] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]  - Tomcat initialized with port 18089 (http)
+ 2024-12-27-20-47 [main] [INFO] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext]  - Root WebApplicationContext: initialization completed in 1179 ms
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\AccountDOMapper.xml]'
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\OrderDOMapper.xml]'
+ 2024-12-27-20-47 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\ProductDOMapper.xml]'
+ 2024-12-27-20-47 [main] [INFO] [org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration]  - a producer (transactional_group) init on namesrv 43.248.186.18:9876
+ 2024-12-27-20-47 [main] [WARN] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext]  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderController': Injection of resource dependencies failed
+ 2024-12-27-20-47 [main] [INFO] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger]  - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ 2024-12-27-20-47 [main] [ERROR] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter]  - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.cuzz.webac.broker.SpringClient' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.cuzz.webac.broker.SpringClient' in your configuration.
+
+ 2024-12-27-20-48 [background-preinit] [INFO] [org.hibernate.validator.internal.util.Version]  - HV000001: Hibernate Validator 8.0.1.Final
+ 2024-12-27-20-48 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - Starting WebAcApplication using Java 17.0.1 with PID 22440 (C:\Users\PC\Desktop\WebAC\build\classes\java\main started by PC in C:\Users\PC\Desktop\WebAC)
+ 2024-12-27-20-48 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - No active profile set, falling back to 1 default profile: "default"
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Multiple Spring Data modules found, entering strict repository configuration mode
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\AccountDOMapper.class]
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\OrderDOMapper.class]
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\ProductDOMapper.class]
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'accountDOMapper' and 'com.cuzz.webac.mapper.AccountDOMapper' mapperInterface
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'accountDOMapper'.
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'orderDOMapper' and 'com.cuzz.webac.mapper.OrderDOMapper' mapperInterface
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'orderDOMapper'.
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'productDOMapper' and 'com.cuzz.webac.mapper.ProductDOMapper' mapperInterface
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'productDOMapper'.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketMQMessageListenerContainerRegistrar' of type [org.apache.rocketmq.spring.support.RocketMQMessageListenerContainerRegistrar] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]  - Tomcat initialized with port 18089 (http)
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext]  - Root WebApplicationContext: initialization completed in 1137 ms
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\AccountDOMapper.xml]'
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\OrderDOMapper.xml]'
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\ProductDOMapper.xml]'
+ 2024-12-27-20-48 [main] [INFO] [org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration]  - a producer (transactional_group) init on namesrv 43.248.186.18:9876
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext]  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderController': Injection of resource dependencies failed
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger]  - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ 2024-12-27-20-48 [main] [ERROR] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter]  - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.cuzz.webac.broker.SpringClient' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.cuzz.webac.broker.SpringClient' in your configuration.
+
+ 2024-12-27-20-48 [background-preinit] [INFO] [org.hibernate.validator.internal.util.Version]  - HV000001: Hibernate Validator 8.0.1.Final
+ 2024-12-27-20-48 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - Starting WebAcApplication using Java 17.0.1 with PID 37044 (C:\Users\PC\Desktop\WebAC\build\classes\java\main started by PC in C:\Users\PC\Desktop\WebAC)
+ 2024-12-27-20-48 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - No active profile set, falling back to 1 default profile: "default"
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Multiple Spring Data modules found, entering strict repository configuration mode
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\AccountDOMapper.class]
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\OrderDOMapper.class]
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\ProductDOMapper.class]
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'accountDOMapper' and 'com.cuzz.webac.mapper.AccountDOMapper' mapperInterface
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'accountDOMapper'.
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'orderDOMapper' and 'com.cuzz.webac.mapper.OrderDOMapper' mapperInterface
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'orderDOMapper'.
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'productDOMapper' and 'com.cuzz.webac.mapper.ProductDOMapper' mapperInterface
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'productDOMapper'.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketMQMessageListenerContainerRegistrar' of type [org.apache.rocketmq.spring.support.RocketMQMessageListenerContainerRegistrar] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]  - Tomcat initialized with port 18089 (http)
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext]  - Root WebApplicationContext: initialization completed in 1075 ms
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\AccountDOMapper.xml]'
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\OrderDOMapper.xml]'
+ 2024-12-27-20-48 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\ProductDOMapper.xml]'
+ 2024-12-27-20-48 [main] [INFO] [org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration]  - a producer (transactional_group) init on namesrv 43.248.186.18:9876
+ 2024-12-27-20-48 [main] [WARN] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext]  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productController': Injection of resource dependencies failed
+ 2024-12-27-20-48 [main] [INFO] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger]  - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ 2024-12-27-20-48 [main] [ERROR] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter]  - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.cuzz.webac.dao.ProductDao' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.cuzz.webac.dao.ProductDao' in your configuration.
+
+ 2024-12-27-20-56 [background-preinit] [INFO] [org.hibernate.validator.internal.util.Version]  - HV000001: Hibernate Validator 8.0.1.Final
+ 2024-12-27-20-56 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - Starting WebAcApplication using Java 17.0.1 with PID 57392 (C:\Users\PC\Desktop\WebAC\build\classes\java\main started by PC in C:\Users\PC\Desktop\WebAC)
+ 2024-12-27-20-56 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - No active profile set, falling back to 1 default profile: "default"
+ 2024-12-27-20-56 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Multiple Spring Data modules found, entering strict repository configuration mode
+ 2024-12-27-20-56 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+ 2024-12-27-20-56 [main] [INFO] [org.springframework.data.repository.config.RepositoryConfigurationDelegate]  - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\AccountDOMapper.class]
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\OrderDOMapper.class]
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Identified candidate component class: file [C:\Users\PC\Desktop\WebAC\build\classes\java\main\com\cuzz\webac\mapper\ProductDOMapper.class]
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'accountDOMapper' and 'com.cuzz.webac.mapper.AccountDOMapper' mapperInterface
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'accountDOMapper'.
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'orderDOMapper' and 'com.cuzz.webac.mapper.OrderDOMapper' mapperInterface
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'orderDOMapper'.
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Creating MapperFactoryBean with name 'productDOMapper' and 'com.cuzz.webac.mapper.ProductDOMapper' mapperInterface
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.mapper.ClassPathMapperScanner]  - Enabling autowire by type for MapperFactoryBean with name 'productDOMapper'.
+ 2024-12-27-20-56 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.ListenerContainerConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-56 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration' of type [org.apache.rocketmq.spring.autoconfigure.MessageConverterConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-56 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'createRocketMQMessageConverter' of type [org.apache.rocketmq.spring.support.RocketMQMessageConverter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-56 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketmq-org.apache.rocketmq.spring.autoconfigure.RocketMQProperties' of type [org.apache.rocketmq.spring.autoconfigure.RocketMQProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-56 [main] [WARN] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker]  - Bean 'rocketMQMessageListenerContainerRegistrar' of type [org.apache.rocketmq.spring.support.RocketMQMessageListenerContainerRegistrar] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [org.apache.rocketmq.spring.annotation.RocketMQMessageListenerBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+ 2024-12-27-20-56 [main] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]  - Tomcat initialized with port 18089 (http)
+ 2024-12-27-20-56 [main] [INFO] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext]  - Root WebApplicationContext: initialization completed in 1410 ms
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\AccountDOMapper.xml]'
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\OrderDOMapper.xml]'
+ 2024-12-27-20-56 [main] [DEBUG] [org.mybatis.spring.SqlSessionFactoryBean]  - Parsed mapper file: 'file [C:\Users\PC\Desktop\WebAC\build\resources\main\mapper\ProductDOMapper.xml]'
+ 2024-12-27-20-56 [main] [INFO] [org.apache.rocketmq.spring.autoconfigure.RocketMQAutoConfiguration]  - a producer (transactional_group) init on namesrv 43.248.186.18:9876
+ 2024-12-27-20-56 [main] [INFO] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer]  - Tomcat started on port 18089 (http) with context path '/'
+ 2024-12-27-20-56 [main] [INFO] [com.cuzz.webac.WebAcApplication]  - Started WebAcApplication in 5.57 seconds (process running for 6.297)
+ 2024-12-27-21-18 [http-nio-18089-exec-1] [INFO] [org.springframework.web.servlet.DispatcherServlet]  - Initializing Servlet 'dispatcherServlet'
+ 2024-12-27-21-18 [http-nio-18089-exec-1] [INFO] [org.springframework.web.servlet.DispatcherServlet]  - Completed initialization in 1 ms
+ 2024-12-27-21-18 [http-nio-18089-exec-1] [WARN] [org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver]  - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf82905] was not registered for synchronization because synchronization is not active
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [INFO] [com.zaxxer.hikari.HikariDataSource]  - HikariPool-1 - Starting...
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [INFO] [com.zaxxer.hikari.pool.HikariPool]  - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7d469472
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [INFO] [com.zaxxer.hikari.HikariDataSource]  - HikariPool-1 - Start completed.
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@1993079266 wrapping com.mysql.cj.jdbc.ConnectionImpl@7d469472] will not be managed by Spring
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf82905]
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Creating a new SqlSession
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@539f7fa1] was not registered for synchronization because synchronization is not active
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.transaction.SpringManagedTransaction]  - JDBC Connection [HikariProxyConnection@1855008013 wrapping com.mysql.cj.jdbc.ConnectionImpl@7d469472] will not be managed by Spring
+ 2024-12-27-21-18 [http-nio-18089-exec-2] [DEBUG] [org.mybatis.spring.SqlSessionUtils]  - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@539f7fa1]
+ 2024-12-27-21-56 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 0
+ 2024-12-27-21-56 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2024-12-27-22-56 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 1
+ 2024-12-27-22-56 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 2024-12-27-23-56 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - Begin update Certificates. total updates: 2
+ 2024-12-27-23-56 [auto-certificate-service-daemon-1] [INFO] [com.wechat.pay.java.core.certificate.AutoCertificateService]  - update wechatpay certificate 1645631772-RSA done
+ 

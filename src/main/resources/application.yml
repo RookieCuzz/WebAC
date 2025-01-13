@@ -1,0 +1,91 @@
+
+server:
+  port: 18089
+
+logging:
+  config: classpath:config/log4j2.xml
+  file:
+    path: logs/application.log
+  level:
+    org.mybatis: DEBUG   # MyBatis SQL 调试日志
+    com.zaxxer.hikari: INFO
+    org.springframework.jdbc.core: DEBUG
+    org.springframework.orm.jpa: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+spring:
+  application:
+    name: WebAC
+  mail:
+    default-encoding: utf-8
+    host: smtp.qq.com
+    username: 1875417678@qq.com
+    password: coxlddkceesqcjgc
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
+  data:
+    redis:
+      port: 6379
+      host: localhost
+      timeout: 3000
+      password: ""
+  datasource:
+    url: jdbc:mysql://8.138.106.163:3306/electric_dispatch
+    username: root
+    password: loveyou
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  debug: false
+jwt:
+  secret:
+    key: 1ea4367a0765e373acc325d95bbe9415cda8916b98555b95553a48db611064bf
+  expiration:
+    time: 3600000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cuzz.webac.model.doo
+pagehelper:
+  helper-dialect: mysql  # 数据库方言，这里以 MySQL 为例
+  reasonable: true  # 合理化分页，防止出现查询第一页时超过最大页数的情况
+  support-methods-arguments: true  # 支持通过方法参数传递分页参数
+wechatpay:
+  merchantId: 1645631772
+  privateKeyPath: "apiclient_key.pem"
+  merchantSerialNumber: 6B25891392A197515DDE96A0AB325BAF5292834E
+  apiV3Key: A111111111111111111111111111111a
+mangodb:
+  url: mongodb://localhost:27017
+
+afybroker:
+  # broker 网关服务器地址
+  host: localhost
+  # broker 网关服务器端口
+  port: "11200"
+  # 客户端名称 每个客户端应该唯一
+  name: 'springx'
+  player:
+    # 在服务器网关断联后是否踢出全部玩家
+    kick-on-close: false
+  server:
+    # 是否开启 mc 游戏服务器自动注册到 proxy 的功能
+    # 若要开启则先确认 broker-bukkit 插件的 config.yml
+  sync-enable: false
+
+rocketmq:
+  name-server: 43.248.186.18:9876  # NameServer
+  producer:
+    group: transactional_group #
+  consumer:
+    group: my-consumer-group #
+
+fromEmail: 1875417678@qq.com

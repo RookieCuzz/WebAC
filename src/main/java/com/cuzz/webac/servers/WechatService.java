@@ -7,7 +7,9 @@ import com.cuzz.webac.model.dto.RequestOrderInfoDTO;
 import com.cuzz.webac.model.vo.OrderInfoVO;
 import com.cuzz.webac.model.vo.QRCodeVO;
 import com.cuzz.webac.servers.rocketmq.producer.RocketMQProducerService;
+import com.cuzz.webac.utils.OrderStatus;
 import com.cuzz.webac.utils.OrderUtils;
+import com.cuzz.webac.utils.PaymentStatus;
 import com.cuzz.webac.utils.QRCodeGenerator;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -105,17 +107,24 @@ public class WechatService {
     }
 
 
+    public Boolean updateOrderInfo(OrderDO orderDO){
+
+        Boolean b = orderDao.updateOrderInfo(orderDO);
+
+        return b;
+    }
+
 
     public Boolean createNewOrder(RequestOrderInfoDTO infoDTO, String orderNumber){
-
+        System.out.println(infoDTO.toString());
         OrderDO orderDO = OrderDO.builder().orderNumber(orderNumber)
                 .actualPayment(BigDecimal.valueOf(infoDTO.getMoney()))
                 .buyerName(infoDTO.getBuyerName())
                 .consigneeName(infoDTO.getUserName())
                 .consigneeUuid(infoDTO.getUserUUID())
                 .productQuantity(infoDTO.getProductAmount())
-                .orderStatus((byte) 0)
-                .paymentStatus((byte) 0)
+                .orderStatus(OrderStatus.PENDING_PAYMENT.getCode())
+                .paymentStatus(PaymentStatus.UNPAID.getCode())
                 .orderDescription(infoDTO.getDescription())
                 .totalDiscount(BigDecimal.valueOf(0))
                 .paymentMethod(infoDTO.getPayment())
@@ -245,10 +254,10 @@ public class WechatService {
 
     }
 
-    public OrderDO getOrderInfoByOrderNumber(String orderInfo){
-        OrderDO orderDoByOrderId = this.orderDao.getOrderDoByOrderNumber(orderInfo);
+    public OrderDO getOrderInfoByOrderNumber(String orderNumber){
+        OrderDO orderDO = this.orderDao.getOrderDoByOrderNumber(orderNumber);
 
-        return orderDoByOrderId;
+        return orderDO;
 
 
     }
@@ -296,6 +305,7 @@ public class WechatService {
         QRCodeVO qrCode = new QRCodeVO();
         qrCode.setOrderId(orderID);
         qrCode.setContent(qrStr);
+        System.out.println(qrStr);
         qrCode.setBuyer(infoDTO.getBuyerName());
         return  qrCode;
     }

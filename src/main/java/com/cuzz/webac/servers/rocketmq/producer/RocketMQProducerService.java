@@ -17,7 +17,7 @@ public class RocketMQProducerService {
 
     public void sendMessage(String topic, String message) {
 
-        rocketMQTemplate.convertAndSend("OrderTimeOut", message);
+        rocketMQTemplate.convertAndSend(topic, message);
         System.out.println("Sent message: " + message);
     }
 
@@ -30,16 +30,20 @@ public class RocketMQProducerService {
     }
 
 
-    // 发送事务消息
-    public void sendTransactionMessage(String orderId) {
-        String topic = "OrderNeedProcessMessage";
+    public void sendTransactionMessage(String orderId, String topic) {
+        topic = "OrderNeedShipMessage";
 
         // 创建消息
         Message<String> order = MessageBuilder.withPayload(orderId).build();
-        // 发送事务消息，RocketMQ 会调用事务监听器中的 executeLocalTransaction 和 checkLocalTransaction 方法
-        TransactionSendResult transactionSendResult = rocketMQTemplate.sendMessageInTransaction(topic, order, null);
+
+        // 发送事务消息
+        TransactionSendResult transactionSendResult = rocketMQTemplate.sendMessageInTransaction(topic, order, topic);
+
+        // 打印发送结果
         log.info("【发送状态】：{}", transactionSendResult.getLocalTransactionState());
-        System.out.println("结果是" + transactionSendResult);
+        log.info("【事务 ID】：{}", transactionSendResult.getTransactionId());
+        log.info("【消息 ID】：{}", transactionSendResult.getMsgId());
+        log.info("【发送结果】：{}", transactionSendResult.getSendStatus());
     }
 
 }

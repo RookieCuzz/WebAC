@@ -4,6 +4,9 @@ package com.cuzz.webac.dao;
 import com.cuzz.webac.mapper.OrderDOMapper;
 import com.cuzz.webac.model.doo.OrderDO;
 import com.cuzz.webac.model.doo.OrderDOExample;
+import com.cuzz.webac.model.dto.RequestOrderInfoDTO;
+import com.cuzz.webac.utils.OrderStatus;
+import com.cuzz.webac.utils.PaymentStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,17 +24,26 @@ public class OrderDao {
 //    order_status -- 订单状态 (0:待支付, 1:处理中, 2:已发货, 3:已签收, 4:已完成, 5:已取消, 6:要退款)
 //    payment_status  -- 付款状态 (0:待支付, 1:已支付, 2:已退款)
 
-    //修改Order的付款状态为已支付 1,订单状态为处理中 1
+    //查询 对应Order的付款状态是否为已支付 1,订单状态为处理中 1
     public Boolean checkOrderIsPayAndProcessing(String orderNumber){
         OrderDOExample orderDOExample = new OrderDOExample();
         orderDOExample.createCriteria().andOrderNumberEqualTo(orderNumber)
-                .andOrderStatusEqualTo((byte)1)
-                .andPaymentStatusEqualTo((byte)1);
+                .andOrderStatusEqualTo(OrderStatus.PROCESSING.getCode())
+                .andPaymentStatusEqualTo(PaymentStatus.PAID.getCode());
 
         List<OrderDO> orderDOS = this.orderDOMapper.selectByExample(orderDOExample);
 
         return !orderDOS.isEmpty();
     }
+
+    public Boolean updateOrderInfo(OrderDO orderDO){
+
+        int i = this.orderDOMapper.updateByPrimaryKeySelective(orderDO);
+        return i>0;
+
+
+    }
+
 
     public List<OrderDO> getPageOrder(){
         OrderDOExample orderDOExample = new OrderDOExample();
@@ -41,7 +53,7 @@ public class OrderDao {
 
     public Boolean updateOrderToProcessing(String orderNumber){
         log.info("更新传来的订单号是"+orderNumber);
-        OrderDO order = OrderDO.builder().orderStatus((byte) 1).paymentStatus((byte) 1).build();
+        OrderDO order = OrderDO.builder().orderStatus(OrderStatus.PROCESSING.getCode()).paymentStatus(PaymentStatus.PAID.getCode()).build();
         OrderDOExample orderDOExample = new OrderDOExample();
         orderDOExample.createCriteria().andOrderNumberEqualTo(orderNumber);
         int i = this.orderDOMapper.updateByExampleSelective(order,orderDOExample);
@@ -58,7 +70,7 @@ public class OrderDao {
         OrderDOExample orderDOExample = new OrderDOExample();
         orderDOExample.createCriteria().andOrderNumberEqualTo(orderNumber);
 
-        List<OrderDO> orderDo = this.orderDOMapper.selectByExample(orderDOExample);
+        List<OrderDO> orderDo = this.orderDOMapper.selectByExampleWithBLOBs(orderDOExample);
         if (orderDo.isEmpty()){
             return null;
         }
@@ -67,9 +79,14 @@ public class OrderDao {
 
     }
     public OrderDO getOrderDoByOrderId(int orderID){
-        OrderDO orderDo = this.orderDOMapper.selectByPrimaryKey(orderID);
+        OrderDOExample orderDOExample = new OrderDOExample();
+        orderDOExample.createCriteria().andOrderIdEqualTo(orderID);
+        List<OrderDO> orderDOS = this.orderDOMapper.selectByExampleWithBLOBs(orderDOExample);
+        if (orderDOS.isEmpty()){
+            return null;
+        }
 
-        return orderDo;
+        return orderDOS.get(0);
 
     }
 

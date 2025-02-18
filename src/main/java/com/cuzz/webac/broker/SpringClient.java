@@ -46,7 +46,7 @@ public class SpringClient {
         return brokerClient;
     }
 
-//    @PostConstruct
+    @PostConstruct
     public void init() throws RemotingException, InterruptedException {
         System.out.println("PostConstruct: Broker has been initialized...");
         getBrokerClient();

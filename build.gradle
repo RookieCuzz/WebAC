@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.cuzz'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 
 java {
     toolchain {
@@ -84,7 +84,7 @@ dependencies {
     implementation 'org.mongodb:bson:4.8.1'
     // Spring Boot 基础依赖
     implementation 'org.springframework.boot:spring-boot-starter'
-
+    implementation 'com.google.code.gson:gson:2.9.0'
     // Redis Starter
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 

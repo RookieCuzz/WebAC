@@ -53,6 +53,7 @@ jwt:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+  #生成的model的路径
   type-aliases-package: com.cuzz.webac.model.doo
 pagehelper:
   helper-dialect: mysql  # 数据库方言，这里以 MySQL 为例

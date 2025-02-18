@@ -12,7 +12,7 @@ import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
 //@Service
-@RocketMQMessageListener(topic = "OrderNeedProcessMessage", consumerGroup = "OrderNeedProcess-GameServerConsumer-group")
+//@RocketMQMessageListener(topic = "OrderNeedShipMessage", consumerGroup = "OrderNeedProcess-GameServerConsumer-group")
 public class OrderPaySuccessMessageGameConsumer implements RocketMQListener<String> {
 
 

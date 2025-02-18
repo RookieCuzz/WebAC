@@ -21,24 +21,30 @@ public class OrderTransactionListener implements RocketMQLocalTransactionListene
 
     // 执行本地事务
     @Override
-    public RocketMQLocalTransactionState executeLocalTransaction(Message message, Object o) {
-        try {
-            String orderNumber = new String((byte[]) message.getPayload());
-            log.error("事务消息为XXX:{}", orderNumber);
+    public RocketMQLocalTransactionState executeLocalTransaction(Message message, Object topic) {
+        log.info("进入 executeLocalTransaction 方法");
+        log.info("接收到的消息主题: {}", topic);
 
-            Boolean result = orderDao.updateOrderToProcessing(orderNumber);
+        if (topic.toString().equalsIgnoreCase("OrderNeedShipMessage")) {
+            try {
+                String orderNumber = new String((byte[]) message.getPayload());
+                log.info("事务消息内容: {}", orderNumber);
 
-            if (result) {
-                log.info("订单更新为支付完成成功 :{}", result);
-                return RocketMQLocalTransactionState.COMMIT;
+                Boolean result = orderDao.updateOrderToProcessing(orderNumber);
+                if (result) {
+                    log.info("订单更新成功，订单编号: {}", orderNumber);
+                    return RocketMQLocalTransactionState.COMMIT;
+                } else {
+                    log.info("订单更新失败，订单编号: {}", orderNumber);
+                    return RocketMQLocalTransactionState.ROLLBACK;
+                }
+            } catch (Exception e) {
+                log.error("事务消息处理异常", e);
+                return RocketMQLocalTransactionState.UNKNOWN;
             }
-            log.info("订单更新为支付完成失败 :{}", result);
-        } catch (Exception e) {
-            log.error("发送事务消息异常:{}", e.getMessage());
-            return RocketMQLocalTransactionState.UNKNOWN;
         }
+        log.warn("未知主题: {}", topic);
         return RocketMQLocalTransactionState.ROLLBACK;
-
     }
 
     // 回查本地事务状态
@@ -46,9 +52,10 @@ public class OrderTransactionListener implements RocketMQLocalTransactionListene
     public RocketMQLocalTransactionState checkLocalTransaction(Message message) {
         try {
             String orderNumber = new String((byte[]) message.getPayload());
-            log.error("事务消息为XXX:{}", orderNumber);
+            log.error("回查的事务消息为XXX:{}", orderNumber);
             // 查询订单状态以确认事务是否成功
-            Boolean result = orderDao.checkOrderIsPayAndProcessing((String) message.getPayload());
+            Boolean result = orderDao.checkOrderIsPayAndProcessing(orderNumber);
+
 
             if (result) {
                 log.info("事务回查成功，订单状态已更新: {}", orderNumber);

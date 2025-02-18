@@ -59,7 +59,7 @@ public class OrderController {
         //放入缓存,考虑后续用redis
         this.orderCaches.getCacheOrders().put(qrCode.getOrderId(), qrCode);
 
-        rocketMQProducerService.sendDelayMessage("OrderTimeOut","oi,请检查 "+qrCode.getOrderId() + "是否超时",120);
+        rocketMQProducerService.sendDelayMessage("OrderTimeOut",qrCode.getOrderId(),1800);
 
 
         return Result.ok(qrCode);
@@ -94,7 +94,7 @@ public class OrderController {
     }
     @PostMapping("/wechatOrderCallback")
     public Result wechatOrderCallback(@RequestBody WeChatPayNotificationDTO info) throws WriterException, RemotingException, InterruptedException {
-        RookiePaySuccessMessage paySuccessMessage = new RookiePaySuccessMessage();
+//        RookiePaySuccessMessage paySuccessMessage = new RookiePaySuccessMessage();
 
         WeChatPayNotificationDTO.Resource resource = info.getResource();
         try {
@@ -107,14 +107,14 @@ public class OrderController {
             if (qrCodeVO==null){
                 throw new Exception("订单在缓存中不存在,设计有缺陷需要到数据库查询");
             }
-            paySuccessMessage.setPlayer(qrCodeVO.getBuyer());
-            paySuccessMessage.setOrderId(outTradeNo);
+//            paySuccessMessage.setPlayer(qrCodeVO.getBuyer());
+//            paySuccessMessage.setOrderId(outTradeNo);
 
 //            //通知游戏服务器集群 发货
 //            springClient.getBrokerClient().invokeSync(paySuccessMessage);
 
             //通知发货  更新赞助榜   QQBot发送消息给管理员群里广播
-            rocketMQProducerService.sendTransactionMessage(outTradeNo);
+            rocketMQProducerService.sendTransactionMessage(outTradeNo,"OrderNeedShipMessage");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

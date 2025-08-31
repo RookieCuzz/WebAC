@@ -24,8 +24,8 @@ public interface  LogItemDOMapper {
             "FROM \n" +
             "    system_monitor_logs\n" +
             "WHERE \n" +
-            "    TIMESTAMP BETWEEN UNIX_TIMESTAMP('2025-01-08 00:00:00')*1000 \n" +
-            "    AND UNIX_TIMESTAMP('2025-01-08 23:59:59')*1000\n" +
+            "    TIMESTAMP BETWEEN UNIX_TIMESTAMP('2025-03-15 00:00:00')*1000 \n" +
+            "    AND UNIX_TIMESTAMP('2025-3-16 23:59:59')*1000\n" +
             "GROUP BY \n" +
             "    time_bucket, server_name  -- 没有 total_memory 和 process_memory, 用聚合函数来处理它们\n" +
             "ORDER BY \n" +

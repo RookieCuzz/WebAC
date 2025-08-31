@@ -1,4 +1,4 @@
-package com.cuzz.webac.servers.rocketmq.producer;
+package com.cuzz.webac.service.rocketmq.producer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.TransactionSendResult;

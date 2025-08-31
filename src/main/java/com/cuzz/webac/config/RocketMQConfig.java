@@ -1,11 +1,5 @@
 package com.cuzz.webac.config;
 
-import com.cuzz.webac.servers.rocketmq.listener.OrderTransactionListener;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.client.producer.TransactionListener;
-import org.apache.rocketmq.client.producer.TransactionMQProducer;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

@@ -1,13 +1,8 @@
-package com.cuzz.webac.servers.rocketmq.listener;
+package com.cuzz.webac.service.rocketmq.listener;
 
-import com.alibaba.fastjson.JSON;
 import com.cuzz.webac.dao.OrderDao;
-import com.cuzz.webac.model.doo.OrderDO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.client.producer.LocalTransactionState;
-import org.apache.rocketmq.client.producer.TransactionListener;
-import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionState;

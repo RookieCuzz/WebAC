@@ -1,18 +1,18 @@
-package com.cuzz.webac.servers.rocketmq.consumer;
+package com.cuzz.webac.service.rocketmq.consumer;
 
 
 import com.alipay.remoting.exception.RemotingException;
 import com.cuzz.common.rookiepay.RookiePaySuccessMessage;
 import com.cuzz.webac.broker.SpringClient;
-import com.cuzz.webac.caches.OrderCaches;
+import com.cuzz.webac.caches.Caches;
 import com.cuzz.webac.model.vo.QRCodeVO;
 import jakarta.annotation.Resource;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
-//@Service
-//@RocketMQMessageListener(topic = "OrderNeedShipMessage", consumerGroup = "OrderNeedProcess-GameServerConsumer-group")
+@Service
+@RocketMQMessageListener(topic = "OrderNeedShipMessage", consumerGroup = "OrderNeedProcess-GameServerConsumer-group")
 public class OrderPaySuccessMessageGameConsumer implements RocketMQListener<String> {
 
 
@@ -20,7 +20,7 @@ public class OrderPaySuccessMessageGameConsumer implements RocketMQListener<Stri
     SpringClient springClient;
 
     @Resource
-    OrderCaches orderCaches;
+    Caches orderCaches;
 
     @Override
     public void onMessage(String orderNumber) {

@@ -1,16 +1,20 @@
-package com.cuzz.webac.servers;
+package com.cuzz.webac.service;
 import com.cuzz.common.rookiepay.RookiePayTryOrderMessage;
 import com.cuzz.common.rookiepay.RookiePayTryOrderResponse;
+import com.cuzz.webac.caches.Caches;
 import com.cuzz.webac.dao.OrderDao;
+import com.cuzz.webac.dao.ProductDao;
 import com.cuzz.webac.model.doo.OrderDO;
 import com.cuzz.webac.model.dto.RequestOrderInfoDTO;
+import com.cuzz.webac.model.game.postbox.AdminItem;
 import com.cuzz.webac.model.vo.OrderInfoVO;
 import com.cuzz.webac.model.vo.QRCodeVO;
-import com.cuzz.webac.servers.rocketmq.producer.RocketMQProducerService;
+import com.cuzz.webac.service.rocketmq.producer.RocketMQProducerService;
 import com.cuzz.webac.utils.OrderStatus;
 import com.cuzz.webac.utils.OrderUtils;
 import com.cuzz.webac.utils.PaymentStatus;
 import com.cuzz.webac.utils.QRCodeGenerator;
+import com.cuzz.webac.utils.constants.RedisConstants;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.zxing.WriterException;
@@ -27,6 +31,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,7 +43,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
-public class WechatService {
+public class OrderWechatService {
 
     @Autowired
     private OrderDao orderDao;
@@ -66,10 +71,17 @@ public class WechatService {
 
     NativePayService service;
     private static Config config;
+//    @Resource
+//    private RedisService redisService;
+    @Resource
+    Caches caches;
 
-    public WechatService(){
+    @Resource
+    ProductDao productDao;
+    public OrderWechatService(){
 
     }
+
 
 
     // 配置初始化方法
@@ -91,7 +103,7 @@ public class WechatService {
             }
 
             // 使用自动更新平台证书的RSA配置，通过文件路径读取私钥
-            this.config = new RSAAutoCertificateConfig.Builder()
+            config = new RSAAutoCertificateConfig.Builder()
                     .merchantId(merchantId)
                     .privateKeyFromPath(tempFile.getAbsolutePath())  // 使用临时文件的路径
                     .merchantSerialNumber(merchantSerialNumber)
@@ -108,15 +120,71 @@ public class WechatService {
 
 
     public Boolean updateOrderInfo(OrderDO orderDO){
-
         Boolean b = orderDao.updateOrderInfo(orderDO);
+        if (b){
+            caches.removeCache(RedisConstants.getOrderKey(orderDO.getOrderNumber()));
+        }
 
         return b;
     }
 
 
-    public Boolean createNewOrder(RequestOrderInfoDTO infoDTO, String orderNumber){
+    //获取某个订单包含的全部商品
+    public  List<AdminItem> getAllProductByOrderNumber(String orderNumber){
+
+        List<AdminItem> allProductByOrder = orderDao.getAllProductByOrder(orderNumber);
+        return allProductByOrder;
+    };
+
+
+
+
+    //将玩家购买的商品与订单进行联合
+    public boolean addProductToOrder(List<String> belongProducts,String orderNumber){
+
+
+        try {
+            boolean b = orderDao.addProductToOrder(belongProducts,orderNumber);
+            return b;
+
+        }catch (Exception exception){
+            exception.printStackTrace();
+            return false;
+        }
+
+
+
+    }
+
+
+
+    public byte queryOrderStatus(String orderNumber){
+        byte b = orderDao.queryOrderStatus(orderNumber);
+        return b;
+
+    }
+
+
+    public byte queryOrderPayMentStatus(String orderNumber){
+        byte b = orderDao.queryOrderPaymentStatus(orderNumber);
+        return b;
+
+    }
+
+
+    //发货逻辑
+    public boolean shipOrderToPlayer(String orderNumber){
+
+
+        return false;
+    };
+
+
+    //新建订单
+    @Transactional(rollbackFor = Exception.class)
+    public boolean createNewOrder(RequestOrderInfoDTO infoDTO, String orderNumber) throws Exception {
         System.out.println(infoDTO.toString());
+        List<String> productList = infoDTO.getProductList();
         OrderDO orderDO = OrderDO.builder().orderNumber(orderNumber)
                 .actualPayment(BigDecimal.valueOf(infoDTO.getMoney()))
                 .buyerName(infoDTO.getBuyerName())
@@ -129,12 +197,23 @@ public class WechatService {
                 .totalDiscount(BigDecimal.valueOf(0))
                 .paymentMethod(infoDTO.getPayment())
                 .address(infoDTO.getAddress()).build();
-        orderDao.spawnNewOrder(orderDO);
+        OrderDO order = orderDao. createNewOrder(orderDO);
+        boolean isSuccess = orderDao.addProductToOrder(productList, orderNumber);
+        if (order==null||!isSuccess){
+            throw new Exception("创建订单失败");
+        }
+        //存入缓存
+        if (order!=null){
+            caches.putCache(RedisConstants.getOrderKey(order.getOrderNumber()),order);
+            return true;
+        }
 
-        return true;
+        return false;
     }
 
-    public Boolean createNewOrder(RookiePayTryOrderMessage rookiePayTryOrderMessage, String orderNumber){
+
+    //rpc 新建订单
+    public Boolean createNewOrder(RookiePayTryOrderMessage rookiePayTryOrderMessage, String orderNumber) throws Exception {
 
         OrderDO orderDO = OrderDO.builder().orderNumber(orderNumber)
                 .actualPayment(BigDecimal.valueOf(rookiePayTryOrderMessage.getMoney()))
@@ -148,13 +227,12 @@ public class WechatService {
                 .totalDiscount(BigDecimal.valueOf(0))
                 .paymentMethod(rookiePayTryOrderMessage.getPayment())
                 .address("Game").build();
-        orderDao.spawnNewOrder(orderDO);
+        orderDao.createNewOrder(orderDO);
 
         return true;
     }
     // rpc模式
-
-    public RookiePayTryOrderResponse createOderInfoVo(RookiePayTryOrderMessage rookiePayTryOrderMessage){
+    public RookiePayTryOrderResponse createOderInfoVo(RookiePayTryOrderMessage rookiePayTryOrderMessage) throws Exception {
         //创建订单 返回二维码
         Double amount = rookiePayTryOrderMessage.getMoney();
         PrepayRequest request = new PrepayRequest();
@@ -177,7 +255,7 @@ public class WechatService {
 
         request.setTimeExpire(formattedExpirationTime);
         //设置微信官方通知我们的地址
-        request.setNotifyUrl("https://www.4399mc.cn/cuzz/order/wechatOrderCallback");
+        request.setNotifyUrl("https://www.4399mc.cn:20443/cuzz/order/wechatOrderCallback");
         String orderID = OrderUtils.generateOrderNumber();
         request.setOutTradeNo(orderID);
         // 调用下单方法，得到应答
@@ -230,7 +308,7 @@ public class WechatService {
 
         request.setTimeExpire(formattedExpirationTime);
         //设置微信官方通知我们的地址
-        request.setNotifyUrl("https://www.4399mc.cn/cuzz/order/wechatOrderCallback");
+        request.setNotifyUrl("https://www.4399mc.cn:20443/cuzz/order/wechatOrderCallback");
         String orderID = OrderUtils.generateOrderNumber();
         request.setOutTradeNo(orderID);
         // 调用下单方法，得到应答
@@ -247,32 +325,31 @@ public class WechatService {
     }
 
 
-    public OrderDO getOrderInfoByOrderId(int orderId){
-        OrderDO orderDoByOrderId = this.orderDao.getOrderDoByOrderId(orderId);
-        return orderDoByOrderId;
 
-
-    }
 
     public OrderDO getOrderInfoByOrderNumber(String orderNumber){
+        //先去缓存查
+        OrderDO cacheOrderDO = (OrderDO)caches.getCache(RedisConstants.getOrderKey(orderNumber));
+        if (cacheOrderDO!=null){
+            return cacheOrderDO;
+        }
+        //缓存没有再去数据库查
         OrderDO orderDO = this.orderDao.getOrderDoByOrderNumber(orderNumber);
+        //添加进redis缓存
+        if (orderDO!=null){
+            caches.putCache(RedisConstants.getOrderKey(orderDO.getOrderNumber()),orderDO);
+        }
 
         return orderDO;
 
 
     }
-    public QRCodeVO getQRCode(RequestOrderInfoDTO infoDTO) throws WriterException {
-
-        Double amount = infoDTO.getMoney();
-        NativePayService service = new NativePayService.Builder().config(config).build();
-
+    public PrepayRequest getPrepayRequest(RequestOrderInfoDTO infoDTO,String orderNumber){
         // 创建支付请求
         PrepayRequest request = new PrepayRequest();
-
-
+        Double amount = infoDTO.getMoney();
         request.setAppid(appid);
         request.setMchid(merchantId);
-
         Amount money = new Amount();
         money.setTotal((int)(amount*100)); // 设置支付金额 单位分
         request.setDescription(infoDTO.getDescription());
@@ -290,23 +367,43 @@ public class WechatService {
 
         request.setTimeExpire(formattedExpirationTime);
         //设置微信官方通知我们的地址
-        request.setNotifyUrl("https://www.4399mc.cn/cuzz/order/wechatOrderCallback");
-        String orderID = OrderUtils.generateOrderNumber();
+        request.setNotifyUrl("https://www.4399mc.cn:20443/cuzz/order/wechatOrderCallback");
 
-        request.setOutTradeNo(orderID);
-        // 调用下单方法，得到应答
-        PrepayResponse response = service.prepay(request);
-        String codeUrl = response.getCodeUrl();
+        request.setOutTradeNo(orderNumber);
+        return request;
+    }
 
-        //添加订单到数据库
-        this.createNewOrder(infoDTO,orderID);
-
-        String qrStr = QRCodeGenerator.getQRStr(codeUrl);
+    public QRCodeVO buildQRCodeVO(String orderNumber,String qrStr,RequestOrderInfoDTO infoDTO){
         QRCodeVO qrCode = new QRCodeVO();
-        qrCode.setOrderId(orderID);
+        qrCode.setOrderId(orderNumber);
         qrCode.setContent(qrStr);
         System.out.println(qrStr);
         qrCode.setBuyer(infoDTO.getBuyerName());
-        return  qrCode;
+        return qrCode;
+    }
+
+    //向微信官方索要付款请求
+    public QRCodeVO saveOrderAndReturnQRCode(RequestOrderInfoDTO infoDTO)  {
+
+
+
+
+        // 调用下单方法，得到应答
+        try {
+            String orderNumber = OrderUtils.generateOrderNumber();
+            PrepayRequest prepayRequest = getPrepayRequest(infoDTO,orderNumber);
+
+            PrepayResponse response = service.prepay(prepayRequest);
+            String codeUrl = response.getCodeUrl();
+            String qrStr = QRCodeGenerator.getQRStr(codeUrl);
+            QRCodeVO qrCodeVO = buildQRCodeVO(orderNumber, qrStr, infoDTO);
+            //添加订单到数据库 若订单存入数据库后,则返回二维码给用户
+            boolean isSuccess = this.createNewOrder(infoDTO, orderNumber);
+            return isSuccess?qrCodeVO:null;
+        }catch (Exception exception){
+
+            exception.printStackTrace();
+        }
+        return null;
     }
 }

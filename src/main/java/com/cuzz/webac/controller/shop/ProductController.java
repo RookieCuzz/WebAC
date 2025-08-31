@@ -2,12 +2,11 @@ package com.cuzz.webac.controller.shop;
 
 
 import com.cuzz.webac.model.doo.ProductDO;
-import com.cuzz.webac.servers.ProductService;
+import com.cuzz.webac.service.ProductService;
 import com.cuzz.webac.utils.Result;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import com.github.pagehelper.PageInfo;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +21,7 @@ public class ProductController {
     @Resource
     ProductService productService;
 
-    @CrossOrigin(origins = "http://127.1.0.1:8866")  // 允许来自指定域名的跨域请求
+    @CrossOrigin
     @GetMapping("/getPageProduct")
     public  Result getAllProduct(@RequestParam(defaultValue = "1") int pageNum,
                                  @RequestParam(defaultValue = "10") int pageSize,

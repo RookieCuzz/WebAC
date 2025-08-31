@@ -26,7 +26,7 @@ public class PasswordUtils {
         return data;
     }
 
-    // 解密Base64编码的加密数据
+    // 解码Base64编码的账户信息
     public static String decrypt(String encryptedData) throws Exception {
         byte[] keyBytes = hexStringToByteArray(secretKey);
         byte[] ivBytes = hexStringToByteArray(ivString);

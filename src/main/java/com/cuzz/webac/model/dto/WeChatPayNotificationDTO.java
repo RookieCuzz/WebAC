@@ -49,6 +49,18 @@ public class WeChatPayNotificationDTO {
         this.resource = resource;
     }
 
+    @Override
+    public String toString() {
+        return "WeChatPayNotificationDTO{" +
+                "summary='" + summary + '\'' +
+                ", eventType='" + eventType + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", resource=" + resource +
+                ", resourceType='" + resourceType + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
+
     public String getResourceType() {
         return resourceType;
     }

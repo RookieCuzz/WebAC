@@ -1,6 +1,5 @@
-package com.cuzz.webac.servers;
+package com.cuzz.webac.service;
 
-import com.cuzz.webac.utils.constants.RedisConstants;
 import com.cuzz.webac.utils.SpawnCheckNumber;
 import jakarta.annotation.Resource;
 import jakarta.mail.internet.MimeMessage;
@@ -10,8 +9,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
@@ -150,9 +147,6 @@ public class MailService {
         // 打印验证码日志
 //        log.info("发送的邮件验证码为: {}", checkNumber.getNumber());
 
-        // 将验证码存入 Redis，设置过期时间
-        redisService.setCacheObject(RedisConstants.EMAIL_CODE + email, checkNumber.getNumber());
-        redisService.expire(RedisConstants.EMAIL_CODE + email, RedisConstants.CAPTCHA_EXPIRATION, TimeUnit.MINUTES);
 
         // 发送邮件
         javaMailSender.send(mimeMessage);

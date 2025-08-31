@@ -1,10 +1,11 @@
-package com.cuzz.webac.servers;
+package com.cuzz.webac.service;
 
 
+import com.cuzz.webac.caches.Caches;
 import com.cuzz.webac.mapper.AccountDOMapper;
 import com.cuzz.webac.model.doo.AccountDO;
-import com.cuzz.webac.model.dto.ACDTO;
-import com.cuzz.webac.utils.EmailValidator;
+import com.cuzz.webac.model.dto.LoginAccountDTO;
+import com.cuzz.webac.model.dto.RegisterAccountDTO;
 import com.cuzz.webac.utils.PasswordUtils;
 import com.cuzz.webac.utils.constants.RedisConstants;
 import jakarta.annotation.Resource;
@@ -21,6 +22,11 @@ public class AccountService {
     @Resource
     private AccountDOMapper accountDOMapper;
 
+    @Resource
+    private Caches caches;
+
+    @Resource
+    JwtService jwtService;
 
     /**
      *
@@ -29,15 +35,15 @@ public class AccountService {
      * @throws Exception
      */
 
-    public AccountDO registerAccount(ACDTO acdto) throws Exception {
+    public AccountDO registerAccount(RegisterAccountDTO acdto) throws Exception {
         AccountDO accountDO = new AccountDO();
         accountDO.setNamex(acdto.getUsername());
-        accountDO.setEmail(acdto.getEmail());
+        accountDO.setEmail(acdto.getUsername());
         accountDO.setRoleId(0);
         accountDO.setStatusx(0);
 
-        String hashPassword = getHashPassword(acdto.getPassword());
-        accountDO.setPassword(hashPassword);
+//        String hashPassword = getHashPassword(acdto.getPassword());
+        accountDO.setPassword(accountDO.getPassword());
         accountDOMapper.insertSelective(accountDO);
         return accountDO;
     }
@@ -52,6 +58,20 @@ public class AccountService {
 
 
         AccountDO accountDO = accountDOMapper.selectByEmail(email);
+        return accountDO;
+
+    }
+
+
+    /**
+     *
+     * @param phone 用户名就是用户注册时的手机号
+     * @return
+     */
+    public AccountDO getAccountByUserName(String phone){
+
+
+        AccountDO accountDO = accountDOMapper.selectByUserName(phone);
         return accountDO;
 
     }
@@ -118,28 +138,47 @@ public class AccountService {
         return hashPassword;
     }
 
-    public boolean isValidRegisterInfo(ACDTO acdto){
+    public boolean isValidRegisterInfo(RegisterAccountDTO acdto){
         //用户名不为空
         if (acdto.getUsername()==null||acdto.getUsername().equalsIgnoreCase(""))
             return false;
-        //邮箱是否合法
-        if (acdto.getEmail()==null|| !EmailValidator.isValidEmail(acdto.getEmail())){
-            return false;
-        }
-
+        if (!acdto.getPassword().equals(acdto.getRepeatPassword()))
+            return  false;
         return true;
     }
 
-    public boolean isEmailMatchCode(ACDTO acdto){
-        System.out.println("redis- key: "+RedisConstants.EMAIL_CODE + acdto.getEmail());
-        String cacheCode = (String)redisService.getCacheObject(RedisConstants.EMAIL_CODE + acdto.getEmail());
+    public boolean isEmailMatchCode(LoginAccountDTO accountDTO){
+        System.out.println("redis- key: "+RedisConstants.getOrderKey(accountDTO.getUsername()));
+        String cacheCode = (String) caches.getCache(RedisConstants.getOrderKey(accountDTO.getUsername()));
+
         if (cacheCode==null){
             return false;
         }
-        if (cacheCode.equalsIgnoreCase(acdto.getVerificationCode())){
+        if (cacheCode.equalsIgnoreCase(accountDTO.getVerificationCode())){
             return true;
         }
         return false;
+    }
+    public boolean isPhoneMatchCode(String phone,String code){
+        String cacheCode = caches.getKey("SmsCache:" + phone);
+        //null
+        if (cacheCode==null){
+            return false;
+        }
+        //空
+        if (cacheCode.isBlank()){
+            return false;
+        }
+
+
+        return cacheCode.equalsIgnoreCase(code);
+    }
+    public String generateApiKey(String str){
+
+        String apiKey = jwtService.generateToken(str);
+
+
+        return apiKey;
     }
 
 }

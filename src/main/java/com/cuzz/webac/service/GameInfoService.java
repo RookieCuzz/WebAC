@@ -1,16 +1,13 @@
-package com.cuzz.webac.servers;
+package com.cuzz.webac.service;
 
 
 import com.cuzz.webac.dao.GameInfoDao;
 import com.cuzz.webac.model.doo.GamePlayerDayCountDo;
 import com.cuzz.webac.model.doo.GamePlayerHourCountDo;
 import com.cuzz.webac.model.vo.ServerPointInfoVO;
-import com.sun.management.OperatingSystemMXBean;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import java.lang.management.ManagementFactory;
-import java.util.HashMap;
 import java.util.List;
 
 @Service

@@ -1,10 +1,9 @@
 package com.cuzz.webac.controller;
 
 import com.cuzz.webac.model.vo.ServerPointInfoVO;
-import com.cuzz.webac.servers.GameInfoService;
+import com.cuzz.webac.service.GameInfoService;
 import com.cuzz.webac.utils.Result;
 import jakarta.annotation.Resource;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,6 +22,7 @@ public class GameServerInfoController {
         return true;
     }
 
+    @CrossOrigin
     @GetMapping("/GetProxies")
     public Result getProxies(){
         ArrayList<String> proxies = new ArrayList<>();
@@ -33,7 +33,7 @@ public class GameServerInfoController {
         return Result.ok(proxies);
     }
 
-
+    @CrossOrigin
     @GetMapping("/getProxyById")
     public Result getProxyById(@RequestParam("name")  String id){
         ArrayList<String> servers = new ArrayList<>();
@@ -47,6 +47,7 @@ public class GameServerInfoController {
         return Result.ok(servers);
     }
 
+    @CrossOrigin
     @GetMapping("/getServerInfoById")
     @ResponseBody
     public Result getServerInfoById(){

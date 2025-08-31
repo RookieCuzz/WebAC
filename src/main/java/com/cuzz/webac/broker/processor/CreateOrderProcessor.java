@@ -3,8 +3,6 @@ package com.cuzz.webac.broker.processor;
 import com.alipay.remoting.BizContext;
 import com.alipay.remoting.rpc.protocol.SyncUserProcessor;
 import com.cuzz.common.rookiepay.RookiePayTryOrderMessage;
-import com.cuzz.webac.servers.WechatService;
-import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 

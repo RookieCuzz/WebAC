@@ -4,8 +4,7 @@ import com.alipay.remoting.BizContext;
 import com.alipay.remoting.rpc.protocol.SyncUserProcessor;
 import com.cuzz.common.rookiepay.RookiePayTryOrderMessage;
 import com.cuzz.common.rookiepay.RookiePayTryOrderResponse;
-import com.cuzz.webac.model.vo.OrderInfoVO;
-import com.cuzz.webac.servers.WechatService;
+import com.cuzz.webac.service.OrderWechatService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +15,7 @@ public class TryOrderProcessor extends SyncUserProcessor<RookiePayTryOrderMessag
 
 
     @Resource
-    WechatService orderService;
+    OrderWechatService orderService;
     @Override
     public Object handleRequest(BizContext bizContext, RookiePayTryOrderMessage rookiePayTryOrderMessage) throws Exception {
 

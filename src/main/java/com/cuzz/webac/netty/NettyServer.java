@@ -21,7 +21,7 @@ public class NettyServer {
 
 
 
-    @Bean
+//    @Bean
     public ApplicationRunner nettyRunner() {
         return args -> {
             EventLoopGroup bossGroup = new NioEventLoopGroup(2);

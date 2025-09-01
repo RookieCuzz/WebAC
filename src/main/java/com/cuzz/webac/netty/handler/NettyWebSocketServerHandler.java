@@ -428,7 +428,7 @@ public class NettyWebSocketServerHandler extends SimpleChannelInboundHandler<Obj
                 String json = gson.toJson(generalMessage);
                 System.out.println(json);
                 aiClient.writeAndFlush(new TextWebSocketFrame(json));
-//                System.out.println("发送请求到 ai端"+aiClient);
+                System.out.println("发送请求到 ai端"+aiClient);
             }
 
         }

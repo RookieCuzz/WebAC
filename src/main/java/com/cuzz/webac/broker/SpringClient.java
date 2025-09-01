@@ -9,6 +9,7 @@ import net.afyer.afybroker.client.BrokerClientBuilder;
 import net.afyer.afybroker.core.BrokerClientType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.UUID;
 
 //@Slf4j
 @Service
+@Lazy
 public class SpringClient {
 
     @Value("${afybroker.host}")
@@ -46,7 +48,7 @@ public class SpringClient {
         return brokerClient;
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void init() throws RemotingException, InterruptedException {
         System.out.println("PostConstruct: Broker has been initialized...");
         getBrokerClient();

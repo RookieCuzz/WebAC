@@ -1,5 +1,4 @@
-pipeline {
-    agent {label 'dockeragent'}
+pipeline {}
     
     environment {
         // 定义环境变量

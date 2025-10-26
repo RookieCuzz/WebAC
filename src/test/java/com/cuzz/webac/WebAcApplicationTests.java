@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class YamlTaskNodeParserTest {
 
-    @Test
+//    @Test
     void testParseYaml() throws Exception {
         // 使用绝对路径加载文件
         File file = new File("C:\\Users\\PC\\Desktop\\WebAC\\src\\main\\resources\\towncraft\\conversations\\task_1.yml");

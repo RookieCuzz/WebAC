@@ -2,6 +2,7 @@ package com.cuzz.webac.service.rocketmq.producer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.TransactionSendResult;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.messaging.Message;
 import jakarta.annotation.Resource;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class RocketMQProducerService {
-
+    @Lazy
     @Resource
     private RocketMQTemplate rocketMQTemplate;
 

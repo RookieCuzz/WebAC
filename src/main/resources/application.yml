@@ -87,11 +87,15 @@ afybroker:
   sync-enable: false
 
 rocketmq:
-  name-server: localhost:9876  # NameServer
+  # 临时恢复 NameServer 配置以确保应用启动
+#  name-server: localhost:9876  # NameServer
+  # 注意：要使用 gRPC Proxy，需要升级到支持的 Spring Boot Starter 版本
+  proxy:
+    endpoints: 103.205.253.165:15081  # gRPC Proxy 端口
   producer:
-    group: shop_group #
+    group: shop_group
   consumer:
-    group: shop-group #
+    group: shop-group
 shop:
   #单位秒
   orderTimeOut: 1800

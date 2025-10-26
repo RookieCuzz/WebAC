@@ -9,7 +9,7 @@ import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 @RocketMQMessageListener(topic = "OrderTimeOut", consumerGroup = "OrderTimeOut-consumer-group")
 public class OrderTimeOutConsumer implements RocketMQListener<String> {
 

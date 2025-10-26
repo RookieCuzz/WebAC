@@ -1,0 +1,218 @@
+pipeline {
+    agent any
+    
+    tools {
+        // 需提前在 Jenkins 全局工具里配置好 JDK 安装
+        jdk 'JDK17'
+    }
+    
+    environment {
+        // 定义环境变量
+        APP_NAME = 'webac'
+        REGISTRY = 'crpi-vqe38j3xeblrq0n4.cn-hangzhou.personal.cr.aliyuncs.com/spring-mctown'
+    }
+    
+    stages {
+        stage('检出代码') {
+            steps {
+                // 从 Git 仓库检出代码
+                checkout scm
+            }
+        }
+        
+        stage('单元测试') {
+            steps {
+                // 运行单元测试
+                sh './gradlew test'
+            }
+            post {
+                always {
+                    // 发布测试报告
+                    junit '**/build/test-results/test/*.xml'
+                }
+            }
+        }
+        
+        stage('代码质量分析') {
+            steps {
+                // 运行 SonarQube 分析
+                sh './gradlew sonarqube'
+            }
+        }
+        
+        stage('构建应用') {
+            steps {
+                // 使用 Gradle 构建应用
+                sh './gradlew build -x test'
+            }
+            post {
+                success {
+                    // 归档构建产物
+                    archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+                }
+            }
+        }
+        
+        stage('打包应用') {
+            steps {
+                // 打包应用
+                sh "cp build/libs/*.jar ${env.APP_NAME}.jar"
+                sh "tar czf ${env.APP_NAME}.tar.gz ${env.APP_NAME}.jar"
+            }
+        }
+        
+        stage('归档') {
+            steps {
+                archiveArtifacts artifacts: "${env.APP_NAME}.tar.gz"
+            }
+        }
+        
+        stage('Docker 构建与推送') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'aliyun-docker-login',
+                    usernameVariable: 'DOCKER_USERNAME',
+                    passwordVariable: 'DOCKER_PASSWORD'
+                )]) {
+                    sh """
+                        echo "\$DOCKER_PASSWORD" | docker login --username \$DOCKER_USERNAME --password-stdin ${env.REGISTRY.split('/')[0]}
+                    """
+                }
+                
+                script {
+                    def imageTag = "${env.REGISTRY}/${env.APP_NAME}:${env.BUILD_NUMBER}"
+                    def latestTag = "${env.REGISTRY}/${env.APP_NAME}:latest"
+                    
+                    sh """
+                        ls -l
+                        docker build -t ${imageTag} --network=host -f cicd/Dockerfile .
+                        docker tag ${imageTag} ${latestTag}
+                        docker push ${imageTag}
+                        docker push ${latestTag}
+                    """
+                }
+            }
+        }
+        
+        // stage('部署所有 Compose 项目') {
+        //     parallel {
+        //         stage('部署开发环境') {
+        //             when {
+        //                 branch 'develop'
+        //             }
+        //             agent {label 'dockeragent'}
+        //             steps {
+        //                 checkout scm
+        //                 sh """
+        //                     pwd
+        //                     ls -l
+        //                 """
+        //                 dir('mq') {
+        //                     script {
+        //                         withCredentials([usernamePassword(
+        //                             credentialsId: 'aliyun-docker-login',
+        //                             usernameVariable: 'DOCKER_USERNAME',
+        //                             passwordVariable: 'DOCKER_PASSWORD'
+        //                         )]) {
+        //                             sh """
+        //                                 echo "\$DOCKER_PASSWORD" | docker login --username "\$DOCKER_USERNAME" --password-stdin ${env.REGISTRY.split('/')[0]}
+        //                             """
+        //                         }
+        //                         sh """
+        //                             pwd
+        //                             ls -l
+        //                             docker compose -f docker-compose.yml down || true
+        //                             docker compose -f docker-compose.yml pull
+        //                             docker compose -f docker-compose.yml up -d --remove-orphans
+        //                         """
+        //                     }
+        //                 }
+        //             }
+        //         }
+                
+        //         stage('部署测试环境') {
+        //             when {
+        //                 branch 'staging'
+        //             }
+        //             agent {label 'dockeragent'}
+        //             steps {
+        //                 checkout scm
+        //                 sh """
+        //                     pwd
+        //                     ls -l
+        //                 """
+        //                 dir('mq') {
+        //                     script {
+        //                         withCredentials([usernamePassword(
+        //                             credentialsId: 'aliyun-docker-login',
+        //                             usernameVariable: 'DOCKER_USERNAME',
+        //                             passwordVariable: 'DOCKER_PASSWORD'
+        //                         )]) {
+        //                             sh """
+        //                                 echo "\$DOCKER_PASSWORD" | docker login --username "\$DOCKER_USERNAME" --password-stdin ${env.REGISTRY.split('/')[0]}
+        //                             """
+        //                         }
+        //                         sh """
+        //                             pwd
+        //                             ls -l
+        //                             docker compose -f docker-compose.yml down || true
+        //                             docker compose -f docker-compose.yml pull
+        //                             docker compose -f docker-compose.yml up -d --remove-orphans
+        //                         """
+        //                     }
+        //                 }
+        //             }
+        //         }
+                
+        //         stage('部署生产环境') {
+        //             when {
+        //                 branch 'main'
+        //             }
+        //             agent {label 'dockeragent'}
+        //             steps {
+        //                 // 手动确认部署到生产环境
+        //                 input message: '确认部署到生产环境?', ok: '部署'
+                        
+        //                 checkout scm
+        //                 sh """
+        //                     pwd
+        //                     ls -l
+        //                 """
+        //                 dir('mq') {
+        //                     script {
+        //                         withCredentials([usernamePassword(
+        //                             credentialsId: 'aliyun-docker-login',
+        //                             usernameVariable: 'DOCKER_USERNAME',
+        //                             passwordVariable: 'DOCKER_PASSWORD'
+        //                         )]) {
+        //                             sh """
+        //                                 echo "\$DOCKER_PASSWORD" | docker login --username "\$DOCKER_USERNAME" --password-stdin ${env.REGISTRY.split('/')[0]}
+        //                             """
+        //                         }
+        //                         sh """
+        //                             pwd
+        //                             ls -l
+        //                             docker compose -f docker-compose.yml down || true
+        //                             docker compose -f docker-compose.yml pull
+        //                             docker compose -f docker-compose.yml up -d --remove-orphans
+        //                         """
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+        success {
+            echo "✅ 构建成功！"
+        }
+        failure {
+            echo "🔥 构建失败，请检查日志。"
+        }
+    }
+}

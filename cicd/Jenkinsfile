@@ -1,5 +1,10 @@
 pipeline {}
       agent {label 'dockeragent'}
+
+    options {
+        // 跳过默认的 SCM 签出（如果你想完全控制 checkout 步骤）
+        skipDefaultCheckout()
+    }
     environment {
         // 定义环境变量
         APP_NAME = 'webac'

@@ -1,4 +1,4 @@
-pipeline {}
+pipeline {
       agent {label 'dockeragent'}
 
     options {
@@ -152,4 +152,5 @@ pipeline {}
             echo "🔥 构建失败，请检查日志。"
         }
     }
+
 }

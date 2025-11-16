@@ -63,7 +63,7 @@ pipeline {
         
         stage('部署测试环境') {
             when {
-                branch 'Test'
+                branch 'test'
             }
             steps {
                 script {

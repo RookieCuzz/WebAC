@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  webac:
+    container_name: ${APP_NAME:-webac}
+    image: ${IMAGE}
+    restart: unless-stopped
+    pull_policy: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-test}
+      JAVA_OPTS: ${JAVA_OPTS:-}

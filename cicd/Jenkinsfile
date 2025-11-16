@@ -61,37 +61,9 @@ pipeline {
             }
         }
         
-        stage('部署开发环境') {
-            when {
-                branch 'develop'
-            }
-            steps {
-                script {
-                    def imageTag = "${env.REGISTRY}/${env.APP_NAME}:${env.BUILD_NUMBER}"
-                    
-                    withCredentials([usernamePassword(
-                        credentialsId: 'aliyun-docker-login',
-                        usernameVariable: 'DOCKER_USERNAME',
-                        passwordVariable: 'DOCKER_PASSWORD'
-                    )]) {
-                        sh """
-                            echo "\$DOCKER_PASSWORD" | docker login --username \$DOCKER_USERNAME --password-stdin ${env.REGISTRY.split('/')[0]}
-                            docker pull ${imageTag}
-                            docker stop ${env.APP_NAME} || true
-                            docker rm ${env.APP_NAME} || true
-                            docker run -d --name ${env.APP_NAME} \
-                            -p 8080:8080 \
-                            -e "SPRING_PROFILES_ACTIVE=dev" \
-                            ${imageTag}
-                        """
-                    }
-                }
-            }
-        }
-        
         stage('部署测试环境') {
             when {
-                branch 'staging'
+                branch 'Test'
             }
             steps {
                 script {
@@ -104,13 +76,13 @@ pipeline {
                     )]) {
                         sh """
                             echo "\$DOCKER_PASSWORD" | docker login --username \$DOCKER_USERNAME --password-stdin ${env.REGISTRY.split('/')[0]}
-                            docker pull ${imageTag}
-                            docker stop ${env.APP_NAME} || true
-                            docker rm ${env.APP_NAME} || true
-                            docker run -d --name ${env.APP_NAME} \
-                            -p 8080:8080 \
-                            -e "SPRING_PROFILES_ACTIVE=test" \
-                            ${imageTag}
+                            cd cicd
+                            IMAGE=${imageTag} APP_NAME=${env.APP_NAME} SPRING_PROFILES_ACTIVE=test \
+                              docker compose -f docker-compose.yml down || true
+                            IMAGE=${imageTag} APP_NAME=${env.APP_NAME} SPRING_PROFILES_ACTIVE=test \
+                              docker compose -f docker-compose.yml pull
+                            IMAGE=${imageTag} APP_NAME=${env.APP_NAME} SPRING_PROFILES_ACTIVE=test \
+                              docker compose -f docker-compose.yml up -d --remove-orphans
                         """
                     }
                 }
@@ -119,7 +91,10 @@ pipeline {
         
         stage('部署生产环境') {
             when {
-                branch 'main'
+                anyOf {
+                    branch 'main'
+                    branch 'prod'
+                }
             }
             steps {
                 // 手动确认部署到生产环境
@@ -135,13 +110,13 @@ pipeline {
                     )]) {
                         sh """
                             echo "\$DOCKER_PASSWORD" | docker login --username \$DOCKER_USERNAME --password-stdin ${env.REGISTRY.split('/')[0]}
-                            docker pull ${imageTag}
-                            docker stop ${env.APP_NAME} || true
-                            docker rm ${env.APP_NAME} || true
-                            docker run -d --name ${env.APP_NAME} \
-                            -p 8080:8080 \
-                            -e "SPRING_PROFILES_ACTIVE=prod" \
-                            ${imageTag}
+                            cd cicd
+                            IMAGE=${imageTag} APP_NAME=${env.APP_NAME} SPRING_PROFILES_ACTIVE=prod \
+                              docker compose -f docker-compose.yml down || true
+                            IMAGE=${imageTag} APP_NAME=${env.APP_NAME} SPRING_PROFILES_ACTIVE=prod \
+                              docker compose -f docker-compose.yml pull
+                            IMAGE=${imageTag} APP_NAME=${env.APP_NAME} SPRING_PROFILES_ACTIVE=prod \
+                              docker compose -f docker-compose.yml up -d --remove-orphans
                         """
                     }
                 }

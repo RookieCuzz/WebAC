@@ -62,9 +62,9 @@ pipeline {
         }
         
         stage('部署测试环境') {
-            when {
-                branch 'Test'
-            }
+//             when {
+//                 branch 'Test'
+//             }
             steps {
                 script {
                     def imageTag = "${env.REGISTRY}/${env.APP_NAME}:${env.BUILD_NUMBER}"

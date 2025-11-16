@@ -1,9 +1,11 @@
-FROM eclipse-temurin:17-jdk-alpine as build
+FROM eclipse-temurin:17-jdk-alpine AS build
 WORKDIR /workspace/app
 
 # 复制 Gradle 相关文件
 COPY gradle gradle
 COPY build.gradle settings.gradle gradlew ./
+# 解决 gradlew 在 Linux 中不可执行/行尾为 CRLF 的问题
+RUN chmod +x gradlew && sed -i 's/\r$//' gradlew
 COPY libs libs
 
 # 复制源代码
